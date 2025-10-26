@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mail-service
+  name: mailer-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mail-service
+      app: mailer-service
   template:
     metadata:
       labels:
-        app: mail-service
+        app: mailer-service
     spec:
       containers:
-        - name: mail-service
+        - name: mailer-service
           image: 'jadokao/mail-service:1.0.0'
           resources:
             limits:
@@ -36,7 +36,7 @@ spec:
             - name: MAIL_PASSWORD
               value: ''
             - name: MAIL_FROM_ADDRESS
-              value: 'admin@example.com'
+              value: 'jacky@example.com'
             - name: MAIL_FROM_NAME
               value: 'jacky'
           ports:
@@ -46,10 +46,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mail-service
+  name: mailer-service
 spec:
   selector:
-    app: mail-service
+    app: mailer-service
   ports:
     - protocol: TCP
       name: main-port

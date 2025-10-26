@@ -15,3 +15,12 @@
 8. kubectl delete deployments broker-service mongo rabbitmq
 9. kubectl get svc
 10. kubectl delete svc broker-service mongo rabbitmq
+
+# Docker Swarm
+
+1. docker swarm init
+2. docker swarm join-token worker
+3. docker swarm join-token manager
+4. docker stack deploy -c swarm.yml myapp
+5. docker service ls
+6. docker swarm leave --force
