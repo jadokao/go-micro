@@ -24,3 +24,6 @@
 4. docker stack deploy -c swarm.yml myapp
 5. docker service ls
 6. docker swarm leave --force
+7. docker service scale myapp_listener-service=3
+8. docker service update --image jadokao/XXX.1.0.1 myapp_listener-service
+9. docker stack rm myapp
